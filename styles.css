@@ -250,3 +250,23 @@ details p{color:var(--g);padding:0 0 20px;max-width:62ch}
 h1,h2{letter-spacing:-.01em}
 h1{font-weight:800}
 @media (max-width:640px){.brand img{height:38px}.nav__in{height:62px}}
+
+/* sizes + tech params */
+.tech{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;margin-top:72px;padding-top:56px;border-top:1px solid #333}
+.tech__h{font-size:22px;margin-bottom:18px;color:#fff}
+.tech__h span{font-family:var(--m);font-size:11px;font-weight:400;color:var(--y);border:1px solid var(--y);padding:2px 6px;margin-left:8px;vertical-align:middle;text-transform:uppercase;letter-spacing:.08em}
+.table-wrap--dark{border-color:#444;margin-top:0}
+.sz{width:100%;border-collapse:collapse;min-width:520px;font-size:15px}
+.sz th,.sz td{padding:13px 16px;text-align:left;border-bottom:1px solid #2c2c2c}
+.sz thead th{font-family:var(--m);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--y);background:#1a1a1a;border-bottom:1px solid #444}
+.sz td{color:#ddd}
+.sz td:first-child{font-weight:700;color:#fff}
+.sz tr:last-child td{border-bottom:0}
+.params{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--y)}
+.params div{padding:14px 0;border-bottom:1px solid #333}
+.params div:nth-child(odd){padding-right:16px}
+.params dt{font-family:var(--m);font-size:11px;color:#9a9a9a;text-transform:uppercase;letter-spacing:.08em}
+.params dd{font-size:20px;font-weight:800;color:#fff;margin-top:4px}
+@media (max-width:960px){.tech{grid-template-columns:1fr;gap:48px}}
+@media (max-width:640px){.tech{margin-top:48px;padding-top:40px}.params dd{font-size:17px}}
+.tech__col,.specs>div{min-width:0}
