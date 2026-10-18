@@ -1,4 +1,4 @@
-:root{--y:#FFC20E;--y2:#E0A800;--k:#111;--k2:#1c1c1c;--g:#6b6b6b;--line:#e3e0d8;--paper:#f6f4ef;--f:'Archivo',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,monospace}
+:root{--y:#C99A55;--y2:#A9773A;--k:#111;--k2:#1c1c1c;--g:#6b6b6b;--line:#e3e0d8;--paper:#f6f4ef;--f:'Montserrat',Arial,sans-serif;--m:'JetBrains Mono',ui-monospace,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);color:var(--k);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -12,7 +12,7 @@ img,svg{display:block}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--k);font-weight:800;text-decoration:none;padding:15px 22px;border:2px solid var(--y);font-size:16px;letter-spacing:.01em;transition:transform .15s,background .15s}
-.btn:hover{background:#ffd23f;transform:translateY(-1px)}
+.btn:hover{background:#d8ad6c;transform:translateY(-1px)}
 .btn--sm{padding:9px 14px;font-size:14px}
 .btn--lg{padding:18px 26px;font-size:18px}
 .btn--ghost{background:transparent;color:#fff;border-color:#fff}
@@ -76,7 +76,7 @@ h3{font-size:21px;font-weight:800;line-height:1.2}
 .cmp thead th{font-family:var(--m);font-size:13px;text-transform:uppercase;letter-spacing:.08em;background:var(--paper);border-bottom:2px solid var(--k)}
 .cmp tbody th{font-weight:700;width:26%}
 .cmp td{color:#444}
-.cmp .hl{background:#fff8dc;color:var(--k);font-weight:700}
+.cmp .hl{background:#f7efe2;color:var(--k);font-weight:700}
 .cmp thead .hl{background:var(--y)}
 .cmp tr:last-child>*{border-bottom:0}
 
@@ -184,7 +184,7 @@ details p{color:var(--g);padding:0 0 20px;max-width:62ch}
 .calc__out span{font-family:var(--m);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--g)}
 .calc__out b{font-size:30px;font-weight:900}
 .calc__out small{color:var(--g);font-size:13px}
-.calc__diff{grid-column:1/-1;font-weight:700;background:#fff8dc;padding:10px 12px;border-left:4px solid var(--y)}
+.calc__diff{grid-column:1/-1;font-weight:700;background:#f7efe2;padding:10px 12px;border-left:4px solid var(--y)}
 .calc__diff:empty{display:none}
 .calc__box>.btn{grid-column:1/-1;justify-content:center}
 
@@ -208,3 +208,45 @@ details p{color:var(--g);padding:0 0 20px;max-width:62ch}
   .calc__out{grid-template-columns:1fr}
   .worry{grid-template-columns:1fr}
 }
+
+/* hero photo */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-1}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:70% center}
+.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#111 0%,#111e 32%,#1119 58%,#1112 100%),linear-gradient(0deg,#111 0%,#1110 30%)}
+.hero__grid{grid-template-columns:1fr;min-height:560px;align-content:center}
+.hero__grid>div:first-child{max-width:640px}
+.strip{background:#111c;backdrop-filter:blur(4px)}
+
+/* proof */
+.proof__grid{display:grid;grid-template-columns:.8fr 1.1fr .8fr;gap:40px;align-items:center}
+.ph{margin:0;position:relative;border:2px solid var(--k);background:var(--k)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph--tall{aspect-ratio:3/4}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;background:var(--k);color:#ddd;font-size:13px;padding:10px 12px;border-top:3px solid var(--y)}
+.ph figcaption b{color:var(--y)}
+.facts{list-style:none;margin:26px 0 28px;border-top:2px solid var(--k)}
+.facts li{display:grid;grid-template-columns:150px 1fr;padding:12px 0;border-bottom:1px solid var(--line)}
+.facts span{color:var(--g)}
+
+@media (max-width:960px){
+  .proof__grid{grid-template-columns:1fr 1fr}
+  .proof__txt{grid-column:1/-1;order:-1}
+}
+@media (max-width:640px){
+  .hero__bg img{object-position:75% center}
+  .hero__bg::after{background:linear-gradient(0deg,#111 0%,#111d 55%,#1118 100%)}
+  .hero__grid{min-height:0}
+  .proof__grid{grid-template-columns:1fr;gap:24px}
+  .facts li{grid-template-columns:1fr}
+}
+
+/* logo header (light, so the supplied logo PNG sits on white) */
+.nav{background:#fff;color:var(--k);border-bottom:3px solid var(--y);box-shadow:0 1px 0 #0001}
+.nav__in{height:72px}
+.brand img{height:48px;width:auto}
+.nav__links a{color:#333}
+.nav__links a:hover{color:var(--y2)}
+h1,h2{letter-spacing:-.01em}
+h1{font-weight:800}
+@media (max-width:640px){.brand img{height:38px}.nav__in{height:62px}}
