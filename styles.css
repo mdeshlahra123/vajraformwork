@@ -296,3 +296,16 @@ h1{font-weight:800}
   .cmp-img{margin-bottom:36px}
   .wide-img{margin-top:28px}
 }
+
+/* hero stats */
+.strip--stats b{font-size:30px;font-weight:900;line-height:1.1;color:var(--y)}
+.strip--stats span{display:block;margin-top:4px}
+/* order steps */
+.steps--order li::before{color:var(--y2)}
+#order .why{margin-top:56px;align-items:stretch}
+#order .why-img{margin:0;aspect-ratio:auto}
+#order .why-img img{height:100%}
+/* trust chips */
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips li{font-size:13px;font-weight:700;border:2px solid var(--k);padding:6px 10px}
+@media (max-width:640px){.strip--stats b{font-size:24px}#order .why{margin-top:36px}}
