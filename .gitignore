@@ -2,3 +2,4 @@ screenshots/
 .vercel
 node_modules/
 raw/
+tasks.md
