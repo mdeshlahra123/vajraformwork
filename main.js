@@ -73,7 +73,7 @@ function calc() {
   }
 
   const msg = `Hi VAJRA Formwork, I'd like a quote for PP hollow formwork.\nSite location: \nApprox. area: ${input.area} sq ft\nPours planned: ${input.pours}\nPanel thickness/type: \nExpected casting date: `;
-  $('calcWa').href = 'https://wa.me/919630012636?text=' + encodeURIComponent(msg);
+  $('calcWa').href = 'https://wa.me/918305070160?text=' + encodeURIComponent(msg);
 }
 
 if ($('calcForm')) {
