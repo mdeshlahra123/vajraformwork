@@ -27,7 +27,7 @@
   figure img, figure video { width:100%; display:block; height:auto; }
   figcaption { font-size:14px; padding:8px 10px; color:var(--soft); background:var(--deep); }
   .reels { grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); }
-  .reels video { aspect-ratio:9/16; object-fit:cover; background:#000; }
+  .reels { align-items:start; } .reels video { height:auto; background:#000; } .reels .wide { grid-column:1 / -1; }
   .bar { position:fixed; left:0; right:0; bottom:0; background:var(--ink); padding:12px 16px; display:flex; gap:10px; justify-content:center; }
   .bar a { flex:1; max-width:300px; text-align:center; padding:13px 10px; font-weight:700; text-decoration:none; border-radius:4px; }
   .call { background:var(--concrete); color:var(--ink); }
@@ -58,14 +58,14 @@
 
   <h2>Asli videos (godown aur site)</h2>
   <div class="grid reels">
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v8.jpg"><source src="/social/web/real-v8.mp4" type="video/mp4"></video><figcaption>Chhat se phenka, toota nahi</figcaption></figure>
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v9.jpg"><source src="/social/web/real-v9.mp4" type="video/mp4"></video><figcaption>Moda, phir bhi toota nahi</figcaption></figure>
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v7.jpg"><source src="/social/web/real-v7.mp4" type="video/mp4"></video><figcaption>Slab shuttering: neeche se poora dekhiye</figcaption></figure>
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v1.jpg"><source src="/social/web/real-v1.mp4" type="video/mp4"></video><figcaption>Godown: nayi sheet, hollow core</figcaption></figure>
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v2.jpg"><source src="/social/web/real-v2.mp4" type="video/mp4"></video><figcaption>Purani sheet, kai dhalai ke baad</figcaption></figure>
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v4.jpg"><source src="/social/web/real-v4.mp4" type="video/mp4"></video><figcaption>Used sheet, haath se check</figcaption></figure>
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v5.jpg"><source src="/social/web/real-v5.mp4" type="video/mp4"></video><figcaption>Site pe column shuttering</figcaption></figure>
-    <figure><video controls playsinline preload="none" poster="/social/web/real-v6.jpg"><source src="/social/web/real-v6.mp4" type="video/mp4"></video><figcaption>Column lagate hue</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="/social/web/real-v8.jpg"><source src="/social/web/real-v8.mp4" type="video/mp4"></video><figcaption>Chhat se phenka, toota nahi</figcaption></figure>
+    <figure class="wide"><video controls playsinline preload="metadata" poster="/social/web/real-v9.jpg"><source src="/social/web/real-v9.mp4" type="video/mp4"></video><figcaption>Moda, phir bhi toota nahi</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="/social/web/real-v7.jpg"><source src="/social/web/real-v7.mp4" type="video/mp4"></video><figcaption>Slab shuttering: neeche se poora dekhiye</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="/social/web/real-v1.jpg"><source src="/social/web/real-v1.mp4" type="video/mp4"></video><figcaption>Godown: nayi sheet, hollow core</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="/social/web/real-v2.jpg"><source src="/social/web/real-v2.mp4" type="video/mp4"></video><figcaption>Purani sheet, kai dhalai ke baad</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="/social/web/real-v4.jpg"><source src="/social/web/real-v4.mp4" type="video/mp4"></video><figcaption>Used sheet, haath se check</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="/social/web/real-v5.jpg"><source src="/social/web/real-v5.mp4" type="video/mp4"></video><figcaption>Site pe column shuttering</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="/social/web/real-v6.jpg"><source src="/social/web/real-v6.mp4" type="video/mp4"></video><figcaption>Column lagate hue</figcaption></figure>
   </div>
 </main>
 <nav class="bar" aria-label="Contact">

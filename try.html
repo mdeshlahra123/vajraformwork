@@ -26,8 +26,8 @@
   h2 { font-size:21px; margin:28px 0 10px; border-top:2px solid var(--gold); padding-top:12px; }
   ol { padding-left:22px; } ol li { margin:6px 0; font-size:17px; }
   img, video { max-width:100%; display:block; }
-  .vids { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px; }
-  .vids video { width:100%; aspect-ratio:9/16; object-fit:cover; background:#000; }
+  .vids { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; align-items:start; } .vids .wide { grid-column:1 / -1; }
+  .vids video { width:100%; height:auto; background:#000; } .pics { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; } .pics img { width:100%; height:auto; } .pics p, .vids p { font-size:13px; color:var(--soft); padding:4px 2px; }
   .vids p { font-size:13px; color:var(--soft); padding:4px 2px; }
   .box { background:#fff; padding:16px; }
   label { display:block; font-weight:700; margin:10px 0 4px; }
@@ -62,10 +62,19 @@
 
   <h2>Khud dekhiye</h2>
   <div class="vids">
-    <div><video controls playsinline preload="none" poster="/social/web/real-v8.jpg"><source src="/social/web/real-v8.mp4" type="video/mp4"></video><p>Chhat se phenka, toota nahi</p></div>
-    <div><video controls playsinline preload="none" poster="/social/web/real-v9.jpg"><source src="/social/web/real-v9.mp4" type="video/mp4"></video><p>Moda, phir bhi toota nahi</p></div>
-    <div><video controls playsinline preload="none" poster="/social/web/real-v7.jpg"><source src="/social/web/real-v7.mp4" type="video/mp4"></video><p>Slab neeche se</p></div>
+    <div class="wide"><video controls playsinline preload="metadata" poster="/social/web/real-v9.jpg" width="720" height="296"><source src="/social/web/real-v9.mp4" type="video/mp4"></video><p>Moda, phir bhi toota nahi</p></div>
+    <div><video controls playsinline preload="metadata" poster="/social/web/real-v8.jpg" width="480" height="640"><source src="/social/web/real-v8.mp4" type="video/mp4"></video><p>Chhat se phenka, toota nahi</p></div>
+    <div><video controls playsinline preload="metadata" poster="/social/web/real-v7.jpg" width="478" height="850"><source src="/social/web/real-v7.mp4" type="video/mp4"></video><p>Slab neeche se</p></div>
   </div>
+
+  <h2>Sheet ki photos</h2>
+  <div class="pics">
+    <div><img src="/images/panels-studio.jpg" alt="PP hollow shuttering sheets" loading="lazy"><p>PP hollow sheet, 12 mm</p></div>
+    <div><img src="/images/core-closeup.jpg" alt="Hollow core close-up" loading="lazy"><p>Andar se hollow, isliye halka</p></div>
+    <div><img src="/images/hero.jpg" alt="Sheets on site" loading="lazy"><p>Site pe</p></div>
+    <div><img src="/images/godown.jpg" alt="Godown stock" loading="lazy"><p>Ready stock, godown</p></div>
+  </div>
+  <p class="note"><a href="/photos">Aur photos aur videos dekhiye →</a></p>
 
   <h2>Mehnga lagta hai? Hisaab dekhiye</h2>
   <img src="/assets/rate-card-first.jpg" alt="Ply ₹416 per dhalai, VAJRA sheet ₹88 per dhalai" loading="lazy" width="1080" height="1500">
