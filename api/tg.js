@@ -9,10 +9,13 @@ export default async function handler(req, res) {
   const secret = req.headers["x-telegram-bot-api-secret-token"] || "";
   const body = typeof req.body === "string" ? req.body : JSON.stringify(req.body || {});
   try {
-    await fetch(to + "?s=" + encodeURIComponent(secret), {
+    const r = await fetch(to + "?s=" + encodeURIComponent(secret), {
       method: "POST", headers: { "Content-Type": "application/json" }, body, redirect: "follow",
       signal: AbortSignal.timeout(25000),
     });
+    // Apps Script must answer ok/dup; anything else (404 page, login page, error) = not delivered, so Telegram keeps it and reports an error
+    const txt = (await r.text()).trim();
+    if (!r.ok || !/^(ok|dup)$/.test(txt)) return res.status(502).send("upstream " + r.status);
   } catch (e) {
     return res.status(502).send("retry"); // Telegram retries; Apps Script skips updates it already handled
   }
