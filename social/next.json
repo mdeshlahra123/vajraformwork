@@ -1,13 +1,6 @@
 {
- "made": "2026-10-24",
+ "made": "2026-10-25",
  "reels": [
-  {
-   "date": "2026-10-24",
-   "time": "09:30",
-   "id": "reel-h2-ekhaath",
-   "url": "https://vajraformwork.vercel.app/social/h2-ekhaath-cta.mp4",
-   "hook": "Ply uthane ko 2 aadmi? VAJRA PP panel ek haath se."
-  },
   {
    "date": "2026-10-25",
    "time": "09:30",
@@ -20,7 +13,7 @@
    "time": "09:30",
    "id": "reel-x7-hisaab",
    "url": "https://vajraformwork.vercel.app/social/x7-hisaab.mp4",
-   "hook": "Har 5 slab pe naya ply? Saal ka hisaab dekh lo. 🧮"
+   "hook": "Har kuch slab pe naya ply? Ab nahi. 🧮"
   },
   {
    "date": "2026-10-27",
@@ -49,16 +42,16 @@
    "id": "reel-x9-halka",
    "url": "https://vajraformwork.vercel.app/social/x9-halka.mp4",
    "hook": "Shuttering itni bhaari kyun? 💪"
+  },
+  {
+   "date": "2026-10-31",
+   "time": "09:30",
+   "id": "reel-a3-mistri",
+   "url": "https://vajraformwork.vercel.app/social/a3-mistri-cta.mp4",
+   "hook": "Labour ko kuch naya seekhna nahi."
   }
  ],
  "images": [
-  {
-   "date": "2026-10-24",
-   "time": "19:30",
-   "id": "v-n1-column",
-   "url": "https://vajraformwork.vercel.app/social/v-n1-column.jpg",
-   "hook": "Column ka shuttering ab PP panel se."
-  },
   {
    "date": "2026-10-25",
    "time": "19:30",
@@ -100,6 +93,13 @@
    "id": "v-p-throw",
    "url": "https://vajraformwork.vercel.app/social/v-p-throw.jpg",
    "hook": "Chhat se gira, phir bhi toota nahi."
+  },
+  {
+   "date": "2026-10-31",
+   "time": "19:30",
+   "id": "v-p-bend",
+   "url": "https://vajraformwork.vercel.app/social/v-p-bend.jpg",
+   "hook": "Itna moda, phir bhi toota nahi. Lachila PP."
   }
  ]
 }
