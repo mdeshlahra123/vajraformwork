@@ -1,8 +1,8 @@
 # Makes light, phone-friendly copies of the REAL site/godown videos for the /photos page:
 # social\web\<name>.mp4 (720p, H.264 Main, ~1.5 Mbps, faststart) + social\web\<name>.jpg poster.
-$ff  = "c:\Users\mehul\Desktop\New\social\studio\tools\node_modules\ffmpeg-static\ffmpeg.exe"
-$src = "c:\Users\mehul\Desktop\New\social\studio\media"
-$w   = "c:\Users\mehul\Desktop\New\website\social\web"
+$ff  = "c:\Users\mehul\Desktop\Vajra\social\studio\tools\node_modules\ffmpeg-static\ffmpeg.exe"
+$src = "c:\Users\mehul\Desktop\Vajra\social\studio\media"
+$w   = "c:\Users\mehul\Desktop\Vajra\website\social\web"
 New-Item -ItemType Directory -Force $w | Out-Null
 $clips = [ordered]@{ "real-v1" = @("v1", 4.0); "real-v2" = @("v2", 2.0); "real-v4" = @("v4", 1.0); "real-v5" = @("v5", 2.0); "real-v6" = @("v6", 6.0) }
 foreach ($n in $clips.Keys) {
