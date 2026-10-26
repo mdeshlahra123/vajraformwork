@@ -1,13 +1,6 @@
 {
- "made": "2026-10-25",
+ "made": "2026-10-26",
  "reels": [
-  {
-   "date": "2026-10-25",
-   "time": "09:30",
-   "id": "reel-real-1023-1128",
-   "url": "https://vajraformwork.vercel.app/social/reel-real-1023-1128.mp4",
-   "hook": "Column shuttering ke liye sabse solid aur light sheet!"
-  },
   {
    "date": "2026-10-26",
    "time": "09:30",
@@ -18,9 +11,9 @@
   {
    "date": "2026-10-27",
    "time": "09:30",
-   "id": "reel-x1-slab",
-   "url": "https://vajraformwork.vercel.app/social/x1-slab-cta.mp4",
-   "hook": "Poora slab VAJRA PP panel pe. Asli site, asli kaam."
+   "id": "reel-qa-rate",
+   "url": "https://vajraformwork.vercel.app/social/qa-rate.mp4",
+   "hook": "Aapne poocha: rate kya hai? 🤔"
   },
   {
    "date": "2026-10-28",
@@ -39,12 +32,19 @@
   {
    "date": "2026-10-30",
    "time": "09:30",
+   "id": "reel-qa-kahan",
+   "url": "https://vajraformwork.vercel.app/social/qa-kahan.mp4",
+   "hook": "Aapne poocha: Surat, Noida mein milega? 🚚"
+  },
+  {
+   "date": "2026-10-31",
+   "time": "09:30",
    "id": "reel-x9-halka",
    "url": "https://vajraformwork.vercel.app/social/x9-halka.mp4",
    "hook": "Shuttering itni bhaari kyun? 💪"
   },
   {
-   "date": "2026-10-31",
+   "date": "2026-11-01",
    "time": "09:30",
    "id": "reel-a3-mistri",
    "url": "https://vajraformwork.vercel.app/social/a3-mistri-cta.mp4",
@@ -52,13 +52,6 @@
   }
  ],
  "images": [
-  {
-   "date": "2026-10-25",
-   "time": "19:30",
-   "id": "v-n3-core",
-   "url": "https://vajraformwork.vercel.app/social/v-n3-core.jpg",
-   "hook": "Andar se hollow core hai, isliye panel halka hai."
-  },
   {
    "date": "2026-10-26",
    "time": "19:30",
@@ -69,37 +62,44 @@
   {
    "date": "2026-10-27",
    "time": "19:30",
+   "id": "v-finish-column",
+   "url": "https://vajraformwork.vercel.app/social/v-finish-column.jpg",
+   "hook": "Shuttering khula, column seedha aur saaf. 🏗️"
+  },
+  {
+   "date": "2026-10-28",
+   "time": "19:30",
+   "id": "car-plyvspp",
+   "url": "https://vajraformwork.vercel.app/social/car-plyvspp-1.jpg",
+   "hook": "Ply ya PP shuttering? Swipe karke 5 seedhe farak dekho. 👉"
+  },
+  {
+   "date": "2026-10-29",
+   "time": "19:30",
    "id": "v-n7-inout",
    "url": "https://vajraformwork.vercel.app/social/v-n7-inout.jpg",
    "hook": "Bahar se smooth face, andar se hollow core."
   },
   {
-   "date": "2026-10-28",
+   "date": "2026-10-30",
    "time": "19:30",
    "id": "v-n6-wash",
    "url": "https://vajraformwork.vercel.app/social/v-n6-wash.jpg",
    "hook": "Casting ke baad bas paani se dho lo, panel agle slab ke liye ready."
   },
   {
-   "date": "2026-10-29",
+   "date": "2026-10-31",
    "time": "19:30",
    "id": "v-p-slab",
    "url": "https://vajraformwork.vercel.app/social/v-p-slab.jpg",
    "hook": "Poora slab VAJRA PP panel pe. Asli site ka kaam."
   },
   {
-   "date": "2026-10-30",
+   "date": "2026-11-01",
    "time": "19:30",
    "id": "v-p-throw",
    "url": "https://vajraformwork.vercel.app/social/v-p-throw.jpg",
    "hook": "Chhat se gira, phir bhi toota nahi."
-  },
-  {
-   "date": "2026-10-31",
-   "time": "19:30",
-   "id": "v-p-bend",
-   "url": "https://vajraformwork.vercel.app/social/v-p-bend.jpg",
-   "hook": "Itna moda, phir bhi toota nahi. Lachila PP."
   }
  ]
 }
