@@ -1,64 +1,57 @@
 {
- "made": "2026-10-27",
+ "made": "2026-10-28",
  "reels": [
   {
-   "date": "2026-10-27",
+   "date": "2026-10-28",
    "time": "09:30",
-   "id": "reel-samples-40-v",
-   "url": "https://vajraformwork.vercel.app/social/samples-40-v.mp4",
-   "hook": "Aaj 40+ free samples pack hue. 📦"
+   "id": "reel-mazdoor",
+   "url": "https://vajraformwork.vercel.app/social/mazdoor.mp4",
+   "hook": "Ghar kiska hai, pata nahi... hum to mazdoor hain 😅"
   },
   {
-   "date": "2026-10-28",
+   "date": "2026-10-29",
+   "time": "09:30",
+   "id": "reel-real-1027-2032",
+   "url": "https://vajraformwork.vercel.app/social/reel-real-1027-2032.mp4",
+   "hook": "Column dhalai ke liye best PP shuttering sheet. Sahi handling ke saath ply se 2-3 guna zyada chalti hai."
+  },
+  {
+   "date": "2026-10-30",
    "time": "09:30",
    "id": "reel-r3-column",
    "url": "https://vajraformwork.vercel.app/social/r3-column-cta.mp4",
    "hook": "Sariya cage se column tak, PP panel se."
   },
   {
-   "date": "2026-10-29",
+   "date": "2026-10-31",
    "time": "09:30",
-   "id": "reel-qa-mehnga-v",
-   "url": "https://vajraformwork.vercel.app/social/qa-mehnga-v.mp4",
-   "hook": "Aapne poocha: mehnga nahi hai? 🧮"
+   "id": "reel-real-1027-2356",
+   "url": "https://vajraformwork.vercel.app/social/reel-real-1027-2356.mp4",
+   "hook": "Har dhalai mein ply tootne aur sadne se pareshan hain? Ab switch kijiye waterproof PP shuttering sheet par."
   },
   {
-   "date": "2026-10-30",
+   "date": "2026-11-01",
    "time": "09:30",
    "id": "reel-r1-oneman",
    "url": "https://vajraformwork.vercel.app/social/r1-oneman-cta.mp4",
    "hook": "Ek aadmi, poora panel. 💪"
   },
   {
-   "date": "2026-10-31",
+   "date": "2026-11-02",
    "time": "09:30",
    "id": "reel-r4-wash",
    "url": "https://vajraformwork.vercel.app/social/r4-wash-cta.mp4",
    "hook": "Dhalai ke baad bas dho lo."
   },
   {
-   "date": "2026-11-01",
+   "date": "2026-11-03",
    "time": "09:30",
    "id": "reel-x7-hisaab-v",
    "url": "https://vajraformwork.vercel.app/social/x7-hisaab-v.mp4",
    "hook": "Har kuch slab pe naya ply? Ab nahi. 🧮"
-  },
-  {
-   "date": "2026-11-02",
-   "time": "09:30",
-   "id": "reel-r2-core",
-   "url": "https://vajraformwork.vercel.app/social/r2-core-cta.mp4",
-   "hook": "Andar se hollow core, isliye halka."
   }
  ],
  "images": [
-  {
-   "date": "2026-10-27",
-   "time": "19:30",
-   "id": "v-n7-inout",
-   "url": "https://vajraformwork.vercel.app/social/v-n7-inout.jpg",
-   "hook": "Bahar se smooth face, andar se hollow core."
-  },
   {
    "date": "2026-10-28",
    "time": "19:30",
