@@ -1,13 +1,6 @@
 {
- "made": "2026-10-28",
+ "made": "2026-10-29",
  "reels": [
-  {
-   "date": "2026-10-28",
-   "time": "09:30",
-   "id": "reel-mazdoor",
-   "url": "https://vajraformwork.vercel.app/social/mazdoor.mp4",
-   "hook": "Ghar kiska hai, pata nahi... hum to mazdoor hain 😅"
-  },
   {
    "date": "2026-10-29",
    "time": "09:30",
@@ -25,9 +18,9 @@
   {
    "date": "2026-10-31",
    "time": "09:30",
-   "id": "reel-real-1027-2356",
-   "url": "https://vajraformwork.vercel.app/social/reel-real-1027-2356.mp4",
-   "hook": "Har dhalai mein ply tootne aur sadne se pareshan hain? Ab switch kijiye waterproof PP shuttering sheet par."
+   "id": "reel-real-1028-1414",
+   "url": "https://vajraformwork.vercel.app/social/reel-real-1028-1414.mp4",
+   "hook": "Har de-shuttering pe ply toot kar bekaar ho jati hai? Ab naya tareeka apnane ka waqt aa gaya hai."
   },
   {
    "date": "2026-11-01",
@@ -49,16 +42,16 @@
    "id": "reel-x7-hisaab-v",
    "url": "https://vajraformwork.vercel.app/social/x7-hisaab-v.mp4",
    "hook": "Har kuch slab pe naya ply? Ab nahi. 🧮"
+  },
+  {
+   "date": "2026-11-04",
+   "time": "09:30",
+   "id": "reel-r2-core",
+   "url": "https://vajraformwork.vercel.app/social/r2-core-cta.mp4",
+   "hook": "Andar se hollow core, isliye halka."
   }
  ],
  "images": [
-  {
-   "date": "2026-10-28",
-   "time": "19:30",
-   "id": "v-finish-column",
-   "url": "https://vajraformwork.vercel.app/social/v-finish-column.jpg",
-   "hook": "Shuttering khula, column seedha aur saaf. 🏗️"
-  },
   {
    "date": "2026-10-29",
    "time": "19:30",
