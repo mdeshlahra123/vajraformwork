@@ -1,87 +1,87 @@
 {
- "made": "2026-10-29",
+ "made": "2026-10-30",
  "reels": [
   {
-   "date": "2026-10-29",
-   "time": "09:30",
-   "id": "reel-real-1027-2032",
-   "url": "https://vajraformwork.vercel.app/social/reel-real-1027-2032.mp4",
-   "hook": "Column dhalai ke liye best PP shuttering sheet. Sahi handling ke saath ply se 2-3 guna zyada chalti hai."
-  },
-  {
    "date": "2026-10-30",
-   "time": "09:30",
-   "id": "reel-r3-column",
-   "url": "https://vajraformwork.vercel.app/social/r3-column-cta.mp4",
-   "hook": "Sariya cage se column tak, PP panel se."
-  },
-  {
-   "date": "2026-10-31",
    "time": "09:30",
    "id": "reel-real-1028-1414",
    "url": "https://vajraformwork.vercel.app/social/reel-real-1028-1414.mp4",
    "hook": "Har de-shuttering pe ply toot kar bekaar ho jati hai? Ab naya tareeka apnane ka waqt aa gaya hai."
   },
   {
-   "date": "2026-11-01",
+   "date": "2026-10-31",
    "time": "09:30",
-   "id": "reel-r1-oneman",
-   "url": "https://vajraformwork.vercel.app/social/r1-oneman-cta.mp4",
-   "hook": "Ek aadmi, poora panel. 💪"
+   "id": "reel-r3-column",
+   "url": "https://vajraformwork.vercel.app/social/r3-column-cta.mp4",
+   "hook": "Sariya cage se column tak, PP panel se."
   },
   {
-   "date": "2026-11-02",
+   "date": "2026-11-01",
    "time": "09:30",
    "id": "reel-r4-wash",
    "url": "https://vajraformwork.vercel.app/social/r4-wash-cta.mp4",
    "hook": "Dhalai ke baad bas dho lo."
   },
   {
-   "date": "2026-11-03",
+   "date": "2026-11-02",
    "time": "09:30",
    "id": "reel-x7-hisaab-v",
    "url": "https://vajraformwork.vercel.app/social/x7-hisaab-v.mp4",
    "hook": "Har kuch slab pe naya ply? Ab nahi. 🧮"
   },
   {
-   "date": "2026-11-04",
+   "date": "2026-11-03",
    "time": "09:30",
    "id": "reel-r2-core",
    "url": "https://vajraformwork.vercel.app/social/r2-core-cta.mp4",
    "hook": "Andar se hollow core, isliye halka."
+  },
+  {
+   "date": "2026-11-04",
+   "time": "09:30",
+   "id": "reel-a3-mistri",
+   "url": "https://vajraformwork.vercel.app/social/a3-mistri-cta.mp4",
+   "hook": "Labour ko kuch naya seekhna nahi."
+  },
+  {
+   "date": "2026-11-05",
+   "time": "09:30",
+   "id": "reel-a2-dekhlo",
+   "url": "https://vajraformwork.vercel.app/social/a2-dekhlo-cta.mp4",
+   "hook": "Pehle dekho, phir lo."
   }
  ],
  "images": [
   {
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "time": "19:30",
    "id": "v-n6-wash",
    "url": "https://vajraformwork.vercel.app/social/v-n6-wash.jpg",
    "hook": "Casting ke baad bas paani se dho lo, panel agle slab ke liye ready."
   },
   {
-   "date": "2026-10-30",
+   "date": "2026-10-31",
    "time": "19:30",
    "id": "v-p-throw",
    "url": "https://vajraformwork.vercel.app/social/v-p-throw.jpg",
    "hook": "Chhat se gira, phir bhi toota nahi."
   },
   {
-   "date": "2026-10-31",
+   "date": "2026-11-01",
    "time": "19:30",
    "id": "v-p-bend",
    "url": "https://vajraformwork.vercel.app/social/v-p-bend.jpg",
    "hook": "Itna moda, phir bhi toota nahi. Lachila PP."
   },
   {
-   "date": "2026-11-01",
+   "date": "2026-11-02",
    "time": "19:30",
    "id": "v-p-workers",
    "url": "https://vajraformwork.vercel.app/social/v-p-workers.jpg",
    "hook": "Site pe lagao, kaam shuru. Column aur slab dono."
   },
   {
-   "date": "2026-11-02",
+   "date": "2026-11-03",
    "time": "19:30",
    "id": "v-n4-cage",
    "url": "https://vajraformwork.vercel.app/social/v-n4-cage.jpg",
