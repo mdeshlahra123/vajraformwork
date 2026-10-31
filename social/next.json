@@ -4,9 +4,9 @@
   {
    "date": "2026-10-31",
    "time": "09:30",
-   "id": "reel-r3-column",
-   "url": "https://vajraformwork.vercel.app/social/r3-column-cta.mp4",
-   "hook": "Sariya cage se column tak, PP panel se."
+   "id": "reel-baarish",
+   "url": "https://vajraformwork.vercel.app/social/baarish.mp4",
+   "hook": "Baarish ho rahi hai, phir bhi kuch nahi hua. ???"
   },
   {
    "date": "2026-11-01",
@@ -28,6 +28,27 @@
    "id": "reel-a2-dekhlo",
    "url": "https://vajraformwork.vercel.app/social/a2-dekhlo-cta.mp4",
    "hook": "Pehle dekho, phir lo."
+  },
+  {
+   "date": "2026-11-04",
+   "time": "09:30",
+   "id": "reel-qa-rate-v",
+   "url": "https://vajraformwork.vercel.app/social/qa-rate-v.mp4",
+   "hook": ""
+  },
+  {
+   "date": "2026-11-05",
+   "time": "09:30",
+   "id": "reel-qa-toot-v",
+   "url": "https://vajraformwork.vercel.app/social/qa-toot-v.mp4",
+   "hook": ""
+  },
+  {
+   "date": "2026-11-06",
+   "time": "09:30",
+   "id": "reel-x8-column-v",
+   "url": "https://vajraformwork.vercel.app/social/x8-column-v.mp4",
+   "hook": ""
   }
  ],
  "images": [
