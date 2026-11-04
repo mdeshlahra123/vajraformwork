@@ -1,13 +1,6 @@
 {
- "made": "2026-11-03",
+ "made": "2026-11-04",
  "reels": [
-  {
-   "date": "2026-11-03",
-   "time": "09:30",
-   "id": "reel-real-1102-1412",
-   "url": "https://vajraformwork.vercel.app/social/reel-real-1102-1412.mp4",
-   "hook": "Har dhalai mein tooti aur phooli ply ka nuksan kab tak jheloge?"
-  },
   {
    "date": "2026-11-04",
    "time": "09:30",
@@ -49,32 +42,39 @@
    "id": "reel-real-1102-1729",
    "url": "https://vajraformwork.vercel.app/social/reel-real-1102-1729.mp4",
    "hook": "Bhari ply uthane se pareshan hain? Dekhiye iska asaan solution PP shuttering sheet ke saath."
+  },
+  {
+   "date": "2026-11-10",
+   "time": "09:30",
+   "id": "reel-real-1104-0830",
+   "url": "https://vajraformwork.vercel.app/social/reel-real-1104-0830.mp4",
+   "hook": "Har baar naya ply khareedne se pareshan hain? Dekhiye RCC slab aur column ka naya solution."
   }
  ],
  "images": [
   {
-   "date": "2026-11-03",
+   "date": "2026-11-04",
    "time": "19:30",
    "id": "car-p2-site",
    "url": "https://vajraformwork.vercel.app/social/p2-slab-underside.jpg",
    "hook": "Slab, beam, column: sab VAJRA PP shuttering sheet se. Swipe karke dekho 👉"
   },
   {
-   "date": "2026-11-04",
+   "date": "2026-11-05",
    "time": "19:30",
    "id": "v-p-bend",
    "url": "https://vajraformwork.vercel.app/social/v-p-bend.jpg",
    "hook": "Itna moda, phir bhi toota nahi. Lachila PP."
   },
   {
-   "date": "2026-11-05",
+   "date": "2026-11-06",
    "time": "19:30",
    "id": "v-p-workers",
    "url": "https://vajraformwork.vercel.app/social/v-p-workers.jpg",
    "hook": "Site pe lagao, kaam shuru. Column aur slab dono."
   },
   {
-   "date": "2026-11-06",
+   "date": "2026-11-07",
    "time": "19:30",
    "id": "v-n4-cage",
    "url": "https://vajraformwork.vercel.app/social/v-n4-cage.jpg",
