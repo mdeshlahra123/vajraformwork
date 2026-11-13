@@ -8,7 +8,24 @@ import crypto from "node:crypto";
 
 const SHEET_ID = "1O2AqihNecxMMJ6hfqXhrAVP2JcOWN5dI8GlAAZliwSY";
 const TAB = "Orders";
-const COLS = { status: "J", notes: "K", tracking: "L", tracking_sent: "N", feedback: "P" };
+const COLS = { status: "J", notes: "K", tracking: "L", tracking_sent: "N", feedback: "P", next: "R" };
+// call outcome -> status + default next follow-up (days from today; null = clear). Attempts count only "no answer".
+const OUTCOMES = {
+  no_answer: { status: "📵 No answer", days: 1 },
+  call_back: { status: "📞 Call back", days: 1 },
+  estimate: { status: "🧮 Needs cost estimate", days: 0 },
+  big_order: { status: "📐 Needs 5+ sheets", days: 0 },
+  quote_sent: { status: "💰 Quote sent", days: 3 },
+  thinking: { status: "🤔 Thinking", days: 7 },
+  hot: { status: "🔥 Hot - ready to order", days: 0 },
+  ordered: { status: "🎉 Ordered", days: null },
+  lost: { status: "🚫 Not interested", days: null },
+  talked: { status: null, days: 3 },   // spoke, nothing changed
+  messaged: { status: null, days: 3 }, // WhatsApp sent from the page
+};
+const istNow = () => new Date(Date.now() + 5.5 * 3600e3);
+const ymd = (d) => d.toISOString().slice(0, 10);
+const addDays = (n) => ymd(new Date(istNow().getTime() + n * 86400e3));
 const STATUSES = ["⏳ Pending", "❌ Not sent", "📦 Sent", "✅ Delivered", "💰 Quote sent", "🤔 Thinking", "🧮 Needs cost estimate",
   "📐 Needs 5+ sheets", "📞 Call back", "🔥 Hot - ready to order", "🎉 Ordered", "📵 No answer", "🚫 Not interested"];
 const FEEDBACK = ["", "Asked", "👍 Good", "😐 OK", "👎 Bad", "No reply", "Ordered"];
@@ -76,7 +93,7 @@ export default async function handler(req, res) {
     if (req.method === "POST" && req.headers["x-vajra-admin"] !== "1") return res.status(403).json({ error: "bad request" });
 
     if (a === "orders" && req.method === "GET") {
-      const j = await sheets(`values/${encodeURIComponent(TAB + "!A1:Q500")}?valueRenderOption=FORMATTED_VALUE`);
+      const j = await sheets(`values/${encodeURIComponent(TAB + "!A1:T500")}?valueRenderOption=FORMATTED_VALUE`);
       const [head, ...rows] = j.values || [];
       const cell = (r, i) => String(r[i] ?? "").trim();
       const out = [];
@@ -84,9 +101,35 @@ export default async function handler(req, res) {
         if (!cell(r, 2) && !cell(r, 3)) return;   // empty template rows
         out.push({ row: i + 2, n: cell(r, 0), month: cell(r, 1), name: cell(r, 2), phone: cell(r, 3), city: cell(r, 4),
           state: cell(r, 5), item: cell(r, 6), qty: cell(r, 7), paid: cell(r, 8), status: cell(r, 9), notes: cell(r, 10),
-          tracking: cell(r, 11), tracking_sent: cell(r, 13).toUpperCase() === "TRUE", feedback: cell(r, 15), address: cell(r, 16) });
+          tracking: cell(r, 11), tracking_sent: cell(r, 13).toUpperCase() === "TRUE", feedback: cell(r, 15), address: cell(r, 16),
+          next: cell(r, 17), last: cell(r, 18), attempts: Number(cell(r, 19)) || 0 });
       });
-      return res.status(200).json({ head, orders: out, statuses: STATUSES, feedback: FEEDBACK });
+      return res.status(200).json({ head, orders: out, statuses: STATUSES, feedback: FEEDBACK, today: ymd(istNow()) });
+    }
+
+    // one call/chat logged: outcome -> status, next follow-up date, last contact (now), attempts, optional note line
+    if (a === "log" && req.method === "POST") {
+      const { row, outcome, next, note } = body(req);
+      const r = Number(row), oc = OUTCOMES[outcome];
+      if (!Number.isInteger(r) || r < 2 || r > 500 || !oc) return res.status(400).json({ error: "bad outcome" });
+      if (next && !/^\d{4}-\d{2}-\d{2}$/.test(String(next))) return res.status(400).json({ error: "bad date" });
+      const cur = await sheets(`values/${encodeURIComponent(`${TAB}!A${r}:T${r}`)}`);
+      const cr = (cur.values || [[]])[0];
+      if (!String(cr[2] || "").trim() && !String(cr[3] || "").trim()) return res.status(400).json({ error: "empty row" });
+      const now = istNow(), stamp = ymd(now) + " " + now.toISOString().slice(11, 16);
+      const attempts = outcome === "no_answer" ? (Number(cr[19]) || 0) + 1 : 0;
+      // no answer: retry tomorrow, after 3 tries wait 3 days
+      let nx = next || (oc.days === null ? "" : addDays(outcome === "no_answer" && attempts >= 3 ? 3 : oc.days));
+      const out = { last: stamp, attempts, next: nx, status: oc.status || String(cr[9] || "") };
+      const data = [{ range: `${TAB}!R${r}:T${r}`, values: [[nx, stamp, attempts || ""]] }];
+      if (oc.status) data.push({ range: `${TAB}!J${r}`, values: [[oc.status]] });
+      if (note && String(note).trim()) {
+        const line = `${now.toISOString().slice(5, 10).split("-").reverse().join("/")}: ${String(note).trim().slice(0, 300)}`;
+        out.notes = (String(cr[10] || "").trim() ? String(cr[10]).trim() + "\n" : "") + line;
+        data.push({ range: `${TAB}!K${r}`, values: [[out.notes]] });
+      }
+      await sheets("values:batchUpdate", { method: "POST", body: JSON.stringify({ valueInputOption: "RAW", data }) });
+      return res.status(200).json({ ok: true, ...out });
     }
 
     if (a === "update" && req.method === "POST") {
@@ -95,6 +138,7 @@ export default async function handler(req, res) {
       if (!Number.isInteger(r) || r < 2 || r > 500 || !COLS[field]) return res.status(400).json({ error: "bad field" });
       if (field === "status" && !STATUSES.includes(v)) return res.status(400).json({ error: "bad status" });
       if (field === "feedback" && !FEEDBACK.includes(v)) return res.status(400).json({ error: "bad feedback" });
+      if (field === "next" && v && !/^\d{4}-\d{2}-\d{2}$/.test(v)) return res.status(400).json({ error: "bad date" });
       // never write into an empty row (protects the sheet from stray row numbers)
       const cur = await sheets(`values/${encodeURIComponent(`${TAB}!A${r}:L${r}`)}`);
       const cr = (cur.values || [[]])[0];
