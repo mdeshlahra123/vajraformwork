@@ -23,6 +23,7 @@ const OUTCOMES = {
   talked: { status: null, days: 3 },   // spoke, nothing changed
   messaged: { status: null, days: 3 }, // WhatsApp sent from the page
 };
+const QCMDS = ["up", "down", "tonight", "morning", "evening", "noevening", "hold", "unhold"];
 const istNow = () => new Date(Date.now() + 5.5 * 3600e3);
 const ymd = (d) => d.toISOString().slice(0, 10);
 const addDays = (n) => ymd(new Date(istNow().getTime() + n * 86400e3));
@@ -105,6 +106,26 @@ export default async function handler(req, res) {
           next: cell(r, 17), last: cell(r, 18), attempts: Number(cell(r, 19)) || 0 });
       });
       return res.status(200).json({ head, orders: out, statuses: STATUSES, feedback: FEEDBACK, today: ymd(istNow()) });
+    }
+
+    // A1: content queue. Snapshot + pending commands live in hidden sheet tabs written by social/queue_sync.py
+    if (a === "queue" && req.method === "GET") {
+      const [v, c] = await Promise.all([
+        sheets(`values/${encodeURIComponent("_queue_view!A1:A20")}`),
+        sheets(`values/${encodeURIComponent("_queue_cmds!A2:E500")}`),
+      ]);
+      const blob = (v.values || []).map((r) => r[0] || "").join("");
+      const snap = blob ? JSON.parse(blob) : null;
+      const cmds = (c.values || []).map((r, i) => ({ row: i + 2, time: r[0], cmd: r[1], id: r[2], status: r[3], note: r[4] || "" }))
+        .filter((r) => r.status === "pending" || (r.time || "") > new Date(Date.now() - 6 * 3600e3).toISOString());
+      return res.status(200).json({ snap, cmds });
+    }
+    if (a === "qcmd" && req.method === "POST") {
+      const { cmd, id } = body(req);
+      if (!QCMDS.includes(cmd) || !/^[\w.-]{2,80}$/.test(String(id || ""))) return res.status(400).json({ error: "bad command" });
+      await sheets(`values/${encodeURIComponent("_queue_cmds!A:E")}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
+        { method: "POST", body: JSON.stringify({ values: [[new Date().toISOString(), cmd, String(id), "pending", ""]] }) });
+      return res.status(200).json({ ok: true });
     }
 
     // one call/chat logged: outcome -> status, next follow-up date, last contact (now), attempts, optional note line

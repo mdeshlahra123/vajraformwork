@@ -183,6 +183,31 @@ textarea:focus{outline:none;border-color:var(--navy2);box-shadow:0 0 0 3px var(-
 .toast.err{background:#7f1d1d}
 @keyframes up{from{transform:translateY(8px);opacity:0}}
 
+/* tabs + posts (content queue) */
+.tabs{display:flex;background:#ffffff14;border-radius:10px;padding:3px;gap:2px}
+.tabs button{border:0;background:none;color:#ffffffb3;font-weight:600;font-size:13px;height:32px;padding:0 12px;border-radius:8px}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--navy)}
+@media(max-width:400px){.brand small{display:none}.tabs button{padding:0 9px}}
+.pnote{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--muted);margin:2px 2px 10px}
+.pnote b{color:var(--fg)}
+.warnbar{background:var(--dsp-bg);color:var(--dsp);border-radius:var(--r);padding:10px 12px;font-size:13px;font-weight:600;margin-bottom:10px}
+.slot{display:flex;gap:12px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:10px 14px;border-bottom:1px solid var(--line2)}
+.slot:last-child{border-bottom:0}
+.slot:active{background:#f4f6fa}
+.thumb{width:48px;height:64px;border-radius:8px;background:#e4e4e7 center/cover no-repeat;flex:none;position:relative;overflow:hidden}
+.thumb.vid::after{content:"▶";position:absolute;right:4px;bottom:3px;font-size:10px;color:#fff;text-shadow:0 1px 2px #000}
+.tm{font-size:12px;font-weight:700;color:var(--navy2);letter-spacing:.02em}
+.tm span{font-weight:500;color:var(--muted);margin-left:6px}
+.cap{font-size:13.5px;font-weight:600;color:#18181b;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px}
+.tags{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+.tag{font-size:10.5px;font-weight:700;padding:2px 6px;border-radius:5px;background:#f4f4f5;color:#52525b}
+.tag.ai{background:#ede9fe;color:#6d28d9}.tag.pin{background:#dbeafe;color:#1d4ed8}.tag.wait{background:#fef3c7;color:#b45309}
+.slot.empty .cap{color:var(--dsp)}
+.pv video,.pv img{width:100%;max-height:52vh;border-radius:12px;background:#000;display:block;object-fit:contain}
+.pv{margin-bottom:12px}
+.pc{font-size:13px;white-space:pre-wrap;color:#3f3f46;max-height:22vh;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.pa{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.pa .btn{min-height:44px}
 .login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(1200px 500px at 50% -10%,#1F3A5F 0,#0f1b2d 60%)}
 .lcard{width:min(100%,360px);background:var(--card);border-radius:18px;padding:26px 22px;box-shadow:0 20px 50px #0006}
 .lcard .mark{width:42px;height:42px;font-size:20px;border-radius:12px;margin-bottom:14px}
@@ -210,14 +235,19 @@ textarea:focus{outline:none;border-color:var(--navy2);box-shadow:0 0 0 3px var(-
 
 <div id="app" hidden>
   <header class="top"><div class="top-in">
-    <div class="brand"><div class="mark" aria-hidden="true">V</div><div><b>Follow-ups</b><small id="upd">VAJRA Admin</small></div></div>
+    <div class="brand"><div class="mark" aria-hidden="true">V</div><div><b id="ttl">Follow-ups</b><small id="upd">VAJRA Admin</small></div></div>
     <div class="sp"></div>
+    <div class="tabs" role="tablist" aria-label="Section">
+      <button role="tab" data-mode="leads" aria-selected="true">Leads</button>
+      <button role="tab" data-mode="posts" aria-selected="false">Posts</button>
+    </div>
     <button class="ib" id="reload" aria-label="Refresh"><svg class="i" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></button>
     <button class="ib" id="logout" aria-label="Log out"><svg class="i" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></button>
   </div></header>
 
   <div class="wrap split">
-    <main>
+    <main id="posts" hidden aria-live="polite"></main>
+    <main id="leads">
       <div class="sum" role="group" aria-label="Summary">
         <button class="st" data-v="today"><span class="n" id="n-today">–</span><span class="l">To do today</span></button>
         <button class="st red" data-v="overdue"><span class="n" id="n-overdue">–</span><span class="l">Overdue</span></button>
@@ -262,6 +292,14 @@ textarea:focus{outline:none;border-color:var(--navy2);box-shadow:0 0 0 3px var(-
   <p class="s" id="trkS"></p>
   <div class="field"><label class="sr" for="trkI">Tracking ID</label><input id="trkI" class="mono" autocomplete="off" autocapitalize="characters" spellcheck="false"></div>
   <div class="row2"><button class="btn" type="button" id="trkNo">Cancel</button><button class="btn dark" type="button" id="trkOk">Save</button></div>
+</div>
+<div class="pop" id="postp" role="dialog" aria-modal="true" aria-labelledby="postT" hidden>
+  <div class="pv" id="postV"></div>
+  <h4 id="postT"></h4>
+  <p class="s" id="postS"></p>
+  <div class="pc" id="postC"></div>
+  <div class="pa" id="postA"></div>
+  <div class="row2"><button class="btn" type="button" id="postNo">Close</button><span></span></div>
 </div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
@@ -605,17 +643,103 @@ document.addEventListener("visibilitychange", () => {   // back from the phone a
   if (document.visibilityState === "visible" && CALLED) { const o = byRow(CALLED); CALLED = null; if (o) setTimeout(() => openLog(o, true), 300); }
 });
 $("#scrim").addEventListener("click", closeDetail);
-document.addEventListener("keydown", (e) => { if (e.key === "Escape" && SEL && $("#logp").hidden && $("#trk").hidden) closeDetail(); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !$("#postp").hidden) return popClose("#postp");
+  if (e.key === "Escape" && SEL && $("#logp").hidden && $("#trk").hidden) closeDetail();
+});
 $$(".st").forEach((b) => b.addEventListener("click", () => { VIEW = VIEW === b.dataset.v && b.dataset.v !== "today" ? "today" : b.dataset.v; render(); }));
 $("#chips").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) { VIEW = b.dataset.v; render(); } });
 $("#q").addEventListener("input", render);
 $("#qclr").addEventListener("click", () => { $("#q").value = ""; render(); $("#q").focus(); });
-$("#reload").addEventListener("click", () => load(true));
+$("#reload").addEventListener("click", () => (MODE === "posts" ? loadPosts(true) : load(true)));
 $("#logout").addEventListener("click", async () => { await api("logout", { method: "POST" }).catch(() => {}); screen("login"); });
 (() => { let y0 = null; const sh = $("#sheet");
   sh.addEventListener("touchstart", (e) => { if (e.target.closest(".sh-b")) return; y0 = e.touches[0].clientY; }, { passive: true });
   sh.addEventListener("touchend", (e) => { if (y0 !== null && e.changedTouches[0].clientY - y0 > 70) closeDetail(); y0 = null; });
 })();
+/* ---------- Posts: content queue (A1) ---------- */
+let MODE = "leads", Q = null;
+const SLOTNAME = { morning: "Trial reel", evening: "Main reel" };
+const CMDTXT = { up: "Move earlier", down: "Move later", tonight: "Post at next 19:30", morning: "Next 09:30 trial",
+  evening: "Move to 19:30 line", noevening: "Move to 09:30 line", hold: "Hold", unhold: "Back to queue" };
+function setMode(m) {
+  MODE = m;
+  $$(".tabs button").forEach((b) => b.setAttribute("aria-selected", b.dataset.mode === m));
+  $("#leads").hidden = m !== "leads"; $("#posts").hidden = m !== "posts";
+  $("#sheet").hidden = m !== "leads"; $("#ttl").textContent = m === "leads" ? "Follow-ups" : "Posts";
+  $(".wrap").classList.toggle("split", m === "leads");
+  if (m === "posts") loadPosts(); else render();
+}
+const dayName = (d) => { const n = days(d, DATA.today || new Date().toISOString().slice(0, 10)); if (n === 0) return "Today"; if (n === 1) return "Tomorrow";
+  const dt = new Date(D(d)); return `${WD[dt.getUTCDay()]} ${dt.getUTCDate()} ${MO[dt.getUTCMonth()]}`; };
+const firstLine = (c) => (c || "").split("\n").find((l) => l.trim()) || "(no caption)";
+function waiting(id) { return (Q?.cmds || []).filter((c) => c.status === "pending" && c.id === id); }
+function slotHTML(s) {
+  const it = s.id && Q.snap.items[s.id];
+  const label = `<div class="tm">${s.time}<span>${SLOTNAME[s.slot]}</span></div>`;
+  if (!it) return `<div class="slot empty"><span class="thumb" aria-hidden="true"></span><span class="mid">${label}<div class="cap">Nothing queued for this slot</div></span></div>`;
+  const pic = it.cover || it.image, w = waiting(it.id);
+  return `<button class="slot" data-id="${esc(it.id)}"><span class="thumb ${it.kind === "reel" ? "vid" : ""}" style="${pic ? `background-image:url('${esc(pic)}')` : ""}" aria-hidden="true"></span>
+    <span class="mid">${label}<div class="cap">${esc(firstLine(it.caption))}</div>
+      <div class="tags"><span class="tag">${esc(it.kind)}</span>${it.ai ? '<span class="tag ai">AI label</span>' : ""}${it.pin ? '<span class="tag pin">Pinned</span>' : ""}
+      ${w.map((c) => `<span class="tag wait">⏳ ${esc(CMDTXT[c.cmd] || c.cmd)}</span>`).join("")}</div></span>
+    <svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>`;
+}
+function renderPosts() {
+  const el = $("#posts");
+  if (!Q?.snap) { el.innerHTML = `<div class="empty"><b>No queue snapshot yet</b>It appears within 10 minutes of the first sync.</div>`; return; }
+  const sn = Q.snap, sch = sn.schedule.filter((s) => s.date);
+  const reelsLeft = Object.values(sn.items).filter((i) => !i.held && i.kind === "reel").length;
+  const emptySoon = sch.find((s) => !s.id);
+  const pend = (Q.cmds || []).filter((c) => c.status === "pending").length;
+  const errs = (Q.cmds || []).filter((c) => c.status === "error");
+  const byDay = {}; sch.forEach((s) => (byDay[s.date] = byDay[s.date] || []).push(s));
+  let html = `<div class="pnote">Queue as of <b>${esc(sn.updated.slice(11))}</b> · ${reelsLeft} reels waiting${pend ? ` · <b>${pend} change${pend > 1 ? "s" : ""} pending</b> (applies within ~10 min, always before the next post)` : ""}</div>`;
+  if (emptySoon) html += `<div class="warnbar">⚠ Queue runs out: ${esc(dayName(emptySoon.date))} ${esc(emptySoon.time)} has nothing to post.</div>`;
+  errs.forEach((c) => html += `<div class="warnbar" style="background:var(--lost-bg);color:var(--lost)">Change not applied: ${esc(CMDTXT[c.cmd] || c.cmd)} · ${esc(c.id)} · ${esc(c.note)}</div>`);
+  for (const [d, slots] of Object.entries(byDay)) html += grpRaw(dayName(d), slots.map(slotHTML).join(""));
+  const held = sn.hold.map((id) => sn.items[id]).filter(Boolean);
+  if (held.length) html += `<section class="grp"><details><summary class="gh" style="cursor:pointer">On hold<b>${held.length}</b></summary>${held.map((it) => {
+    const pic = it.cover || it.image, w = waiting(it.id);
+    return `<button class="slot" data-id="${esc(it.id)}"><span class="thumb ${it.kind === "reel" ? "vid" : ""}" style="${pic ? `background-image:url('${esc(pic)}')` : ""}" aria-hidden="true"></span>
+      <span class="mid"><div class="cap">${esc(firstLine(it.caption))}</div><div class="tags"><span class="tag">${esc(it.id)}</span>${w.map((c) => `<span class="tag wait">⏳ ${esc(CMDTXT[c.cmd])}</span>`).join("")}</div></span></button>`; }).join("")}</details></section>`;
+  el.innerHTML = `<div class="list">${html}</div>`;
+}
+const grpRaw = (title, inner) => `<section class="grp"><div class="gh">${esc(title)}</div>${inner}</section>`;
+async function loadPosts(manual) {
+  if (!Q) $("#posts").innerHTML = `<section class="grp">${Array.from({ length: 5 }, () => `<div class="sk"><span style="width:48px;height:64px;border-radius:8px"></span><span style="flex:1"><span style="height:10px;width:30%;margin-bottom:8px"></span><span style="height:12px;width:70%"></span></span></div>`).join("")}</section>`;
+  $("#reload").classList.add("spin");
+  try { Q = await api("queue"); renderPosts(); if (manual) toast("Refreshed"); }
+  catch (e) { if (e.message !== "login") toast("Could not load queue: " + e.message, true); }
+  finally { $("#reload").classList.remove("spin"); }
+}
+function openPost(id) {
+  const it = Q.snap.items[id]; if (!it) return;
+  const s = Q.snap.schedule.find((x) => x.id === id);
+  $("#postV").innerHTML = it.kind === "reel" && it.video
+    ? `<video src="${esc(it.video)}" poster="${esc(it.cover || "")}" controls playsinline preload="metadata"></video>`
+    : (it.image ? `<img src="${esc(it.image)}" alt="Post image">` : "");
+  $("#postT").textContent = firstLine(it.caption);
+  $("#postS").textContent = it.held ? "On hold · not scheduled" : s ? `${dayName(s.date)} ${s.time} · ${SLOTNAME[s.slot]}` : "In the queue, after the next 7 days";
+  $("#postC").textContent = it.caption || "";
+  const acts = it.held ? ["unhold"] : it.kind === "reel"
+    ? ["up", "down", "tonight", "morning", it.lane === "evening" ? "noevening" : "evening", "hold"].filter((c) => !(c === "morning" && it.lane === "trial"))
+    : ["up", "down", "hold"];
+  $("#postA").innerHTML = acts.map((c) => `<button class="btn ${c === "tonight" ? "dark" : c === "hold" ? "" : ""}" data-qc="${c}">${esc(CMDTXT[c])}</button>`).join("");
+  $("#postA").onclick = async (e) => {
+    const b = e.target.closest("[data-qc]"); if (!b) return;
+    b.disabled = true;
+    try { await api("qcmd", { method: "POST", body: JSON.stringify({ cmd: b.dataset.qc, id }) });
+      Q.cmds = [...(Q.cmds || []), { cmd: b.dataset.qc, id, status: "pending" }]; renderPosts();
+      toast(`${CMDTXT[b.dataset.qc]}: saved, applies within ~10 min`); popClose("#postp"); }
+    catch (err) { if (err.message !== "login") toast("Not saved: " + err.message, true); b.disabled = false; }
+  };
+  $("#postNo").onclick = $("#scrim2").onclick = () => { popClose("#postp"); const v = $("#postV video"); if (v) v.pause(); };
+  popOpen("#postp");
+}
+$("#posts").addEventListener("click", (e) => { const b = e.target.closest(".slot[data-id]"); if (b) openPost(b.dataset.id); });
+$$(".tabs button").forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
+
 $("#lf").addEventListener("submit", async (e) => {
   e.preventDefault(); $("#lerr").textContent = ""; $("#lbtn").disabled = true; $("#lbtn").textContent = "Checking…";
   try { await api("login", { method: "POST", body: JSON.stringify({ pin: $("#pin").value }) }); $("#pin").value = ""; await load(); }
