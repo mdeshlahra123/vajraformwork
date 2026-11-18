@@ -1,26 +1,26 @@
 {
- "made": "2026-11-17",
+ "made": "2026-11-18",
  "reels": [
-  {
-   "date": "2026-11-17",
-   "time": "09:30 trial",
-   "id": "reel-text-1114-1711",
-   "url": "https://vajraformwork.vercel.app/social/reel-text-1114-1711.mp4",
-   "hook": "Myth: PP sheet mein kil nahi lagti"
-  },
-  {
-   "date": "2026-11-17",
-   "time": "19:30",
-   "id": "reel-gen-1116-0211",
-   "url": "https://vajraformwork.vercel.app/social/reel-gen-1116-0211.mp4",
-   "hook": "Shuttering kaatna ab bahut aasan"
-  },
   {
    "date": "2026-11-18",
    "time": "09:30 trial",
    "id": "reel-ep-1116-0230",
    "url": "https://vajraformwork.vercel.app/social/reel-ep-1116-0230.mp4",
    "hook": "Hathode se ply todna badi galti, asli smartness toh dekhne mein hai."
+  },
+  {
+   "date": "2026-11-18",
+   "time": "19:30",
+   "id": "reel-gen-1116-0211",
+   "url": "https://vajraformwork.vercel.app/social/reel-gen-1116-0211.mp4",
+   "hook": "Shuttering kaatna ab bahut aasan"
+  },
+  {
+   "date": "2026-11-19",
+   "time": "09:30 trial",
+   "id": "reel-real-1118-0704",
+   "url": "https://vajraformwork.vercel.app/social/reel-real-1118-0704.mp4",
+   "hook": "Shuttering ka kharcha har slab pe badh raha hai? VAJRA PP shuttering sheet apnane ka samay aa gaya hai."
   }
  ],
  "images": [
